@@ -1,0 +1,37 @@
+<ActionBar title="APNA INDORI ALPAHAR CALCULATOR" class="action-bar" backgroundColor="#b71c1c" color="white">
+</ActionBar>
+<ScrollView style='background: #231f20;'>
+    <StackLayout>
+            <Image src="~/app/homepage/indore.jpg" width="100%"></Image>
+            <Label color="white" text="Welcome to Apna Indori Alpahar Calculator. Use this bakwaas tool to just mess around and do practically nothing. Thanks for wasting your time :)"
+            textWrap="true"
+            textAlignment="center"
+            marginTop="5"
+            class="top-text"></Label>
+            <GridLayout rows="auto", columns="*,*,*" id="gl-first" borderWidth="1">
+                <Label text="ITEM" row="0" col="0" textAlignment="center"></Label>
+                <Label text="QUANTITY" row="0" col="1" textAlignment="center"></Label>
+                <Label text="PRICE" row="0" col="2" textAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout rows="auto", columns="*,*,*" class="items" backgroundColor="#f5f5f5">
+                <Label text="Poha" row="0" col="0" textAlignment="center" class="item"></Label>
+                <Button [text]="items.poha.quantity + ' &nbsp;&nbsp;&nbsp;▼'" row="0" col="1" (tap)="quantitySelect('poha')" class='select'></Button>
+                <Label [text]="'₹'+ items.poha.quantity*items.poha.unitPrice" col="2" textAlignment="center" textWrap="true"></Label>
+            </GridLayout>
+            <GridLayout rows="auto", columns="*,*,*" class="items" backgroundColor="lightgray">
+                <Label text="Jalebi" row="0" col="0" textAlignment="center" class="item"></Label>
+                <Button [text]="items.jalebi.quantity*100 + 'g &nbsp;&nbsp;&nbsp;▼'" row="0" col="1" (tap)="quantitySelect('jalebi')" class='select'></Button>
+                <Label [text]="'₹'+items.jalebi.quantity*items.jalebi.unitPrice" col="3" textAlignment="center" textWrap="true"></Label>
+            </GridLayout>
+            <GridLayout rows="auto", columns="*,*,*" class="items" backgroundColor="#f5f5f5">
+                <Label text="Dhokla" row="0" col="0" textAlignment="center" class="item"></Label>
+                <Button [text]="items.dhokla.quantity*100 + 'g &nbsp;&nbsp;&nbsp;▼'" row="0" col="1" (tap)="quantitySelect('dhokla')" class='select'></Button>
+                <Label [text]="'₹'+ items.dhokla.quantity*items.dhokla.unitPrice" col="3" textAlignment="center" textWrap="true"></Label>
+            </GridLayout>
+            <Button class="btn" text="Calculate" (tap)="calculate()"></Button>
+            <Button text="Reset" (tap)="reset()" color="#b71c1c" style="color: white; font-weight: 700;"></Button>
+            <Label [text]="msg" textAlignment="center" class="result" *ngIf="msg!=''"></Label>
+
+            <Button (tap)="open()" text="Send SMS" *ngIf="showSmsBtn" id="smsBtn"></Button>
+    </StackLayout>
+    </ScrollView>
