@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as utils from "tns-core-modules/utils/utils";
 import { prompt, PromptOptions, PromptResult, capitalizationType, inputType, action, alert } from "tns-core-modules/ui/dialogs";
 import { isAndroid } from 'tns-core-modules/ui/page/page';
+import { TabView } from "tns-core-modules/ui/tab-view";
 @Component({
   selector: 'ns-homepage',
   templateUrl: './homepage.component.html',

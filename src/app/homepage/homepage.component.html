@@ -1,6 +1,7 @@
 <ActionBar title="APNA INDORI ALPAHAR CALCULATOR" class="action-bar" backgroundColor="#b71c1c" color="white">
 </ActionBar>
-<ScrollView style='background: #231f20;'>
+<TabView>
+<ScrollView style='background: #231f20;' *tabItem="{title: 'Calculator'}">
     <StackLayout>
             <Image src="~/app/homepage/indore.jpg" width="100%"></Image>
             <Label color="white" text="Welcome to Apna Indori Alpahar Calculator. Use this bakwaas tool to just mess around and do practically nothing. Thanks for wasting your time :)"
@@ -34,4 +35,9 @@
 
             <Button (tap)="open()" text="Send SMS" *ngIf="showSmsBtn" id="smsBtn"></Button>
     </StackLayout>
-    </ScrollView>
+</ScrollView>
+<StackLayout *tabItem="{title: 'About'}" style='background: #231f20;'>
+    <Image src="~/app/homepage/indore.jpg" width="100%"></Image>
+    <Label [text]="'App developed with ❤ by Akshat Bhanchawat' + String.fromCharCode(0xe903)" color="white"></Label>
+</StackLayout>
+</TabView>
